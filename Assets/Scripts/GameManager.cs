@@ -179,9 +179,15 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(4);
         gameOver = true;
     }
-    public void Restart()
+    public void Rematch()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
+    }
+
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene(0); 
+        
     }
     
     void Awake()
