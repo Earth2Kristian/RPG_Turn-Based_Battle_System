@@ -40,7 +40,6 @@ public class GameManager : MonoBehaviour
     public GameObject enemyObject;
     public EnemyHealthBarScript enemyHealthBar;
 
-
     void Start()
     {
         Time.timeScale = 1f;

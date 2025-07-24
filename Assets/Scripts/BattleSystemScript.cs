@@ -83,7 +83,6 @@ public class BattleSystemScript : MonoBehaviour
     public float enemyDamageTaken;
     public float enemyDamageTakenCrit;
 
-        
     // Random Chance of A Cirtial Hit
     public int randomCritChanceForPlayer;
     public int randomCritChanceForEnemy;
@@ -93,6 +92,9 @@ public class BattleSystemScript : MonoBehaviour
     public Transform playerFloatingTextPosition;
     public Transform enemyFloatingTextPosition;
     public GameObject floatingText;
+
+    // Sound Effects
+    public AudioSource healSoundEffect;
 
     void Start()
     {
@@ -143,8 +145,6 @@ public class BattleSystemScript : MonoBehaviour
 
     void Update()
     {
-       
-
         // Player's Turn 
         if (playerTurn)
         {
@@ -498,6 +498,7 @@ public class BattleSystemScript : MonoBehaviour
         Quaternion healRotation = Quaternion.Euler(-90, 0, 0);
         GameObject healSpell = Instantiate(HealObject, HealPosition.position, healRotation);
         healSpell.transform.localScale = new Vector3(8, 8, 8);
+        healSoundEffect.Play();
         StartCoroutine(HealingDelay());
         Debug.Log("Player Healed");
     }
