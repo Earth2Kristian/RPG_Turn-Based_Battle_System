@@ -94,6 +94,8 @@ public class BattleSystemScript : MonoBehaviour
     public GameObject floatingText;
 
     // Sound Effects
+    public AudioSource hitHurtSoundEffect;
+    public AudioSource critHurtSoundEffect;
     public AudioSource healSoundEffect;
 
     void Start()
@@ -347,6 +349,7 @@ public class BattleSystemScript : MonoBehaviour
             GameManager.Instance.enemyHealth -= enemyDamageTaken;
             GameManager.Instance.enemyHPText.text = "HP: " + Mathf.Round(GameManager.Instance.enemyHealth);
             GameManager.Instance.enemyHealthBar.UpdateEnemyHealthBar(GameManager.Instance.enemyHealth, GameManager.Instance.enemyMaxHealth);
+            hitHurtSoundEffect.Play();
             enemyAnimate.SetBool("gotHit", true) ;
 
             // Floating text will appear above the enemy
@@ -359,6 +362,7 @@ public class BattleSystemScript : MonoBehaviour
             GameManager.Instance.enemyHealth -= enemyDamageTakenCrit;
             GameManager.Instance.enemyHPText.text = "HP: " + Mathf.Round(GameManager.Instance.enemyHealth);
             GameManager.Instance.enemyHealthBar.UpdateEnemyHealthBar(GameManager.Instance.enemyHealth, GameManager.Instance.enemyMaxHealth);
+            critHurtSoundEffect.Play();
             enemyAnimate.SetBool("gotHit", true);
             CritHitUI.SetActive(true);
             camAnimate.SetBool("CameraShakeTrigger", true);
@@ -401,6 +405,7 @@ public class BattleSystemScript : MonoBehaviour
             GameManager.Instance.playerHealth -= playerDamageTaken;
             GameManager.Instance.playerHPText.text = "" + Mathf.Round(GameManager.Instance.playerHealth);
             GameManager.Instance.healthBar.UpdateHealthBar(GameManager.Instance.playerHealth, GameManager.Instance.playerMaxHealth);
+            hitHurtSoundEffect.Play();
             playerAnimate.SetBool("gotHit", true);
 
             // Floating text will appear above the player
@@ -415,6 +420,7 @@ public class BattleSystemScript : MonoBehaviour
             GameManager.Instance.playerHealth -= playerDamageTakenCrit;
             GameManager.Instance.playerHPText.text = "" + Mathf.Round(GameManager.Instance.playerHealth);
             GameManager.Instance.healthBar.UpdateHealthBar(GameManager.Instance.playerHealth, GameManager.Instance.playerMaxHealth);
+            critHurtSoundEffect.Play();
             playerAnimate.SetBool("gotHit", true);
             CritHitUI.SetActive(true);
             camAnimate.SetBool("CameraShakeTrigger", true);
