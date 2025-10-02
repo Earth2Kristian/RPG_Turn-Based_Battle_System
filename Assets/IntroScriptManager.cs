@@ -12,6 +12,8 @@ public class IntroScriptManager : MonoBehaviour
     void Start()
     {
         textValue = 0;
+
+        Time.timeScale = 1f;
     }
 
     void Update()
