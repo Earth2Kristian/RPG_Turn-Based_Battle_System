@@ -12,4 +12,13 @@ public class MenuScreenManager : MonoBehaviour
         SceneManager.LoadScene(1); 
     }
 
+    public void LoadCredits()
+    {
+        SceneManager.LoadScene(3);
+    }
+    public void LoadBackToMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
 }
